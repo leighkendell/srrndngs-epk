@@ -1,4 +1,4 @@
-srrndngs-bmt
+Surroundings Press Kit
 ============
 
-A little promo site for a competition my band is currently running
+A little Press Kit for my band Surroundings
