@@ -1,0 +1,21 @@
+{
+  "name": "epk",
+  "version": "0.0.1",
+  "author": "Leigh Kendell",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-ruby-sass": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-minify-css": "*",
+    "gulp-rename": "*",
+    "gulp-notify": "*",
+    "gulp-clean": "*",
+    "gulp-livereload": "*",
+    "tiny-lr": "*",
+    "gulp-imagemin": "*",
+    "gulp-uglify": "*",
+    "gulp-cache": "*",
+    "gulp-plumber": "*",
+    "browser-sync": "*"
+  }
+}
