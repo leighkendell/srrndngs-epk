@@ -21,22 +21,24 @@
             </div>
         </header>
 
-        <nav class="main-nav" role="navigation">
+        <div id="sticky-trigger"></div>
+
+        <nav id="main-nav" class="main-nav" role="navigation">
             <ul class="menu">
-                <li><a data-scroll href="#bio">Biography</a>
+                <li class="menu-item-bio"><a data-scroll href="#bio">Biography</a>
                 </li>
-                <li><a data-scroll href="#music">Music</a>
+                <li class="menu-item-music"><a data-scroll href="#music">Music</a>
                 </li>
-                <li><a data-scroll href="#videos">Videos</a>
+                <li class="menu-item-videos"><a data-scroll href="#videos">Videos</a>
                 </li>
-                <li><a data-scroll href="#photos">Photos</a>
+                <li class="menu-item-photos"><a data-scroll href="#photos">Photos</a>
                 </li>
-                <li><a data-scroll href="#contact">Contact</a>
+                <li class="menu-item-contact"><a data-scroll href="#contact">Contact</a>
                 </li>
             </ul>
         </nav>
 
-        <main class="content" role="main">
+        <main id="content" class="content" role="main">
             <div id="bio" class="bio">
                 <h2>Biography</h2>
                 <p>Formed in 2011 by five close friends, Surroundings are a melodic hardcore/metal band from Perth, Western Australia. Fuelled by a passion to create refreshing music within the genre, Surroundings have crafted a unique blend of heavy guitar work and ambience not too dissimilar from the world of post-rock.</p>
@@ -91,10 +93,10 @@
         </footer>
     </div>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/min/waypoints.min.js"></script>
     <script src="js/min/smooth-scroll.min.js"></script>
-    <script>
-        smoothScroll.init();
-    </script>
+    <script src="/js/min/site.min.js"></script>
 </body>
 
 </html>

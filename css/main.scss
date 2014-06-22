@@ -148,6 +148,14 @@ body {
   background-color: lighten($brand-red, 32%);
   padding: 2.2em 4em;
 
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
   .menu {
     margin: 0;
     padding: 0;
@@ -155,6 +163,12 @@ body {
     li {
       display: inline-block;
       margin-left: 1.2em;
+
+      &.active {
+        a {
+          color: red;
+        }
+      }
 
       &:first-child {
         margin-left: 0;
