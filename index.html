@@ -1,28 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Surroundings - Press Kit</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:700|Merriweather:400,700' rel='stylesheet' type='text/css'>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Surroundings - Press Kit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <body>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:700|Merriweather:400,700' rel='stylesheet' type='text/css'>
+</head>
 
+<body>
+    <div class="content-wrap">
         <header role="main" class="main-header">
-           <h1>Press Kit</h1>
+            <div class="logo">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Surroundings Logo" class="surroundings-logo">
+                <h1>Press Kit</h1>
+            </div>
         </header>
 
-        <div class="main-content">
+        <nav class="main-nav" role="navigation">
+            <ul class="menu">
+                <li><a data-scroll href="#bio">Biography</a>
+                </li>
+                <li><a data-scroll href="#music">Music</a>
+                </li>
+                <li><a data-scroll href="#videos">Videos</a>
+                </li>
+                <li><a data-scroll href="#photos">Photos</a>
+                </li>
+                <li><a data-scroll href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
 
-        </div>
+        <main class="content" role="main">
+            <div id="bio" class="bio">
+                <h2>Biography</h2>
+                <p>Formed in 2011 by five close friends, Surroundings are a melodic hardcore/metal band from Perth, Western Australia. Fuelled by a passion to create refreshing music within the genre, Surroundings have crafted a unique blend of heavy guitar work and ambience not too dissimilar from the world of post-rock.</p>
+
+                <a href="/pdf/servicing-sheet.pdf" class="button">Download press release</a>
+            </div>
+
+            <div id="music" class="music">
+                <h2>Music</h2>
+                <p>Surroundings currently have two releases, an EP and a full length album.</p>
+
+                <ul class="albums">
+                    <li class="obbac"><a href="">Of Bane, Burden &amp; Change (2014)</a></li>
+                    <li class="otd"><a href="">Overcome The Distance (2011)</a></li>
+                </ul>
+
+                <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/40860624&amp;color=56b0ec&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+            </div>
+
+            <div id="videos" class="videos">
+                <h2>Videos</h2>
+                <div class="youtube">
+                    <iframe src="//www.youtube.com/embed/XDJVUVhFHPs?rel=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div id="photos" class="photos">
+                <h2>Photos</h2>
+                <p>Download an image set (zip file) of Surroundings most recent photoshoot.</p>
+
+                <ul class="photoshoot">
+                    <li class="image-01"></li>
+                    <li class="image-02"></li>
+                    <li class="image-03"></li>
+                    <li class="image-04"></li>
+                </ul>
+
+                <a href="/photoshoots/high-res.zip" class="button">Download Photos (5.8mb zip)</a>
+            </div>
+
+            <div id="contact" class="contact">
+                <h2>Contact</h2>
+                <p>
+                    <strong>Management/Bookings:</strong>
+                    Karl Popov | Highland Records | <a href="mailto:karl@highland-records.com">karl@highland-records.com</a>
+                </p>
+            </div>
+        </main>
 
         <footer class="main-footer">
 
         </footer>
-    </body>
+    </div>
+
+    <script src="js/min/smooth-scroll.min.js"></script>
+    <script>
+        smoothScroll.init();
+    </script>
+</body>
+
 </html>

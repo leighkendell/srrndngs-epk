@@ -21,6 +21,9 @@
 $font-merriweather: 'Merriweather', serif;
 $font-sourcesans: 'Source Sans Pro', sans-serif;
 
+/* Colours */
+$brand-red: #e46c62;
+
 
 /* ==========================================================================
    Global
@@ -30,6 +33,17 @@ $font-sourcesans: 'Source Sans Pro', sans-serif;
 	box-sizing: border-box;
 }
 
+.button {
+  display: inline-block;
+  font-family: $font-sourcesans;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #4cb2e8;
+  padding: 1.1em;
+  border-radius: 4px;
+}
+
 
 /* ==========================================================================
    Typography
@@ -37,4 +51,227 @@ $font-sourcesans: 'Source Sans Pro', sans-serif;
 
 body {
 	font-family: $font-merriweather;
+}
+
+h1 {
+  font-family: $font-sourcesans;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  font-size: 1.625em;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-family: $font-sourcesans;
+  text-transform: uppercase;
+  font-size: 3.125em;
+  margin: 0 0 0.4em 0;
+  color: lighten($brand-red, 12%);
+}
+
+p {
+  font-size: 1.125em;
+  line-height: 1.65;
+  color: #909090;
+  margin-bottom: 2em;
+
+  a {
+    color: #56b0ec;
+  }
+}
+
+nav {
+  font-family: $font-sourcesans;
+  text-transform: uppercase;
+
+  a {
+    text-decoration: none;
+    color: #cc9b96;
+    font-size: 1.2em;
+
+    &:hover {
+      color: lighten($brand-red, 5%);
+    }
+  }
+}
+
+
+/* ==========================================================================
+   General
+   ========================================================================== */
+
+body {
+  background-color: #dde4ec;
+}
+
+.content-wrap {
+  max-width: 1800px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.main-header {
+  background-color: $brand-red;
+
+  @include breakpoint(medium) {
+    background: $brand-red url(../images/surroundings-group-header.jpg) no-repeat right 45%;
+    background-size: 65%;   
+  }
+}
+
+.logo {
+  width: 100%;
+  padding: 5%;
+
+  .surroundings-logo {
+    display: block;
+    background: url(../images/surroundings-logo.svg) no-repeat;
+    background-size: 100%;
+    width: 38%;
+    height: 0;
+    padding-bottom: 45%;
+    margin: 0 auto;
+  }
+
+  @include breakpoint(medium) {
+    width: 35%;
+
+    .surroundings-logo {
+      width: 58%;
+      padding-bottom: 68%;
+    }
+  }
+}
+
+.main-nav {
+  background-color: lighten($brand-red, 32%);
+  padding: 2.2em 4em;
+
+  .menu {
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-left: 1.2em;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.content {
+  padding: 4em;
+
+  > div {
+    padding-top: 3em;
+    margin-bottom: 4em;
+    border-top: 1px solid lighten($brand-red, 30%);
+
+    &:first-child {
+      padding-top: 0;
+      border: none;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.albums {
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-left: 2em;
+    text-align: center;
+    margin-bottom: 4em;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    a {
+      text-decoration: none;
+      font-family: $font-sourcesans;
+      color: $brand-red;
+      font-size: 0.8em;
+    }
+  }
+
+  .obbac {
+    width: 150px;
+    height: 0;
+    padding-top: 155px;
+    background: url(../images/obbac-artwork.jpg) no-repeat;
+    background-size: 100%;
+  }
+
+  .otd {
+    @extend .obbac;
+    background-image: url(../images/otd-artwork.jpg);
+  }
+}
+
+.youtube {
+  width: 100%;
+  height: 0;
+  margin-top: 2em;
+  padding-bottom: 60%;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.photoshoot {
+  padding: 0;
+  margin-bottom: 2.5em;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    margin: 0 0 1% 1%;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .image-01 {
+    background: url(../images/shoot-1.jpg);
+    background-size: cover;
+    width: 23.9%;
+    height: 0;
+    padding-bottom: 15.8%;
+  }
+
+  .image-02 {
+    @extend .image-01;
+    background: url(../images/shoot-2.jpg);
+    background-size: cover;
+  }
+
+  .image-03 {
+    @extend .image-01;
+    background: url(../images/shoot-3.jpg);
+    background-size: cover;
+  }
+
+  .image-04 {
+    @extend .image-01;
+    background: url(../images/shoot-4.jpg);
+    background-size: cover;
+  }
+}
+
+.contact {
+  strong {
+    display: block;
+  }
 }
