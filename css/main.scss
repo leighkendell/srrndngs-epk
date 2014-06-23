@@ -208,7 +208,7 @@ body {
 
       &.active {
         a {
-          color: red;
+          color: lighten($brand-red, 5%);
         }
       }
 
@@ -385,7 +385,7 @@ body {
 
   li {
     display: inline-block;
-    margin-left: 1em;
+    margin-left: 0.4em;
 
     &:first-child {
       margin-left: 0;
@@ -427,5 +427,11 @@ body {
   .rdio {
     background-color: $rdio-blue;
     background-image: url(../images/optimised/rdio.svg);
+  }
+
+  @include breakpoint(medium) {
+    li {
+      margin-left: 1em;
+    }
   }
 }
