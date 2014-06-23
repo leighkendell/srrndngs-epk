@@ -1,5 +1,6 @@
 *,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.button{display:block;font-family:"Source Sans Pro",sans-serif;text-decoration:none;text-transform:uppercase;color:#fff;background-color:#4cb2e8;padding:1.1em;border-radius:4px;text-align:center;font-size:0.8em}@media (min-width: 700px){.button{display:inline-block;font-size:1em}}
 body{font-family:"Merriweather",serif}h1{font-family:"Source Sans Pro",sans-serif;color:rgba(255,255,255,0.8);text-transform:uppercase;font-size:1.625em;text-align:center;margin-bottom:0}h2{font-family:"Source Sans Pro",sans-serif;text-transform:uppercase;font-size:2.125em;margin:0 0 0.4em 0;color:#ea8d85}@media (min-width: 700px){h2{font-size:3.125em}}
+h3{font-family:"Source Sans Pro",sans-serif;text-transform:uppercase;font-size:1.2em;margin:0 0 0.6em 0;color:#ea8d85}@media (min-width: 700px){h3{font-size:1.6em}}
 p{font-size:1em;line-height:1.65;color:#909090;margin-bottom:2em}p a{color:#56b0ec}@media (min-width: 700px){p{font-size:1.125em}}
 .copy{font-size:0.8em;margin:0}nav{font-family:"Source Sans Pro",sans-serif;text-transform:uppercase}nav a{text-decoration:none;color:#93a9b4;font-size:0.8em}nav a:hover{color:#e88078}@media (min-width: 700px){nav a{font-size:1.2em}}
 body{background-color:#dde4ec}@media (min-width: 700px){body.sticky{margin-top:94px}}
