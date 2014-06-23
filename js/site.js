@@ -8,5 +8,5 @@ smoothScroll.init({
 });
 
 $('#sticky-trigger').waypoint(function() {
-  $('#main-nav').toggleClass('sticky');
+  $('#main-nav, body').toggleClass('sticky');
 });

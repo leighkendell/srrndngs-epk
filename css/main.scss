@@ -34,7 +34,7 @@ $brand-red: #e46c62;
 }
 
 .button {
-  display: inline-block;
+  display: block;
   font-family: $font-sourcesans;
   text-decoration: none;
   text-transform: uppercase;
@@ -42,6 +42,11 @@ $brand-red: #e46c62;
   background-color: #4cb2e8;
   padding: 1.1em;
   border-radius: 4px;
+  text-align: center;
+
+  @include breakpoint(medium) {
+    display: inline-block;
+  }
 }
 
 
@@ -65,19 +70,27 @@ h1 {
 h2 {
   font-family: $font-sourcesans;
   text-transform: uppercase;
-  font-size: 3.125em;
+  font-size: 2.125em;
   margin: 0 0 0.4em 0;
   color: lighten($brand-red, 12%);
+
+  @include breakpoint(medium) {
+    font-size: 3.125em;
+  }
 }
 
 p {
-  font-size: 1.125em;
+  font-size: 1em;
   line-height: 1.65;
   color: #909090;
   margin-bottom: 2em;
 
   a {
     color: #56b0ec;
+  }
+
+  @include breakpoint(medium) {
+    font-size: 1.125em;
   }
 }
 
@@ -88,10 +101,16 @@ nav {
   a {
     text-decoration: none;
     color: #cc9b96;
-    font-size: 1.2em;
+    font-size: 0.8em;
 
     &:hover {
       color: lighten($brand-red, 5%);
+    }
+  }
+
+  @include breakpoint(medium) {
+    a {
+      font-size: 1.2em;
     }
   }
 }
@@ -103,6 +122,12 @@ nav {
 
 body {
   background-color: #dde4ec;
+
+  @include breakpoint(medium) {
+    &.sticky {
+      margin-top: 94px;
+    }
+  }
 }
 
 .content-wrap {
@@ -146,16 +171,8 @@ body {
 
 .main-nav {
   background-color: lighten($brand-red, 32%);
-  padding: 2.2em 4em;
-
-  &.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    z-index: 100;
-  }
+  padding: 1em;
+  text-align: center;
 
   .menu {
     margin: 0;
@@ -163,7 +180,7 @@ body {
 
     li {
       display: inline-block;
-      margin-left: 1.2em;
+      margin-left: 0.5em;
 
       &.active {
         a {
@@ -176,14 +193,34 @@ body {
       }
     }
   }
+
+  @include breakpoint (medium) {
+    padding: 2.2em 4em;
+    text-align: left;
+
+    &.sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 100;
+    }
+
+    .menu {
+      li {
+        margin-left: 1.2em;
+      }
+    }
+  }
 }
 
 .content {
-  padding: 4em;
+  padding: 2em;
 
   > div {
-    padding-top: 3em;
-    margin-bottom: 4em;
+    padding-top: 1.5em;
+    margin-bottom: 2em;
     border-top: 1px solid lighten($brand-red, 30%);
 
     &:first-child {
@@ -195,6 +232,15 @@ body {
       margin-bottom: 0;
     }
   }
+
+  @include breakpoint(medium) {
+    padding: 4em;
+
+    > div {
+      padding-top: 3em;
+      margin-bottom: 4em;
+    } 
+  }
 }
 
 .albums {
@@ -202,9 +248,8 @@ body {
 
   li {
     display: inline-block;
-    margin-left: 2em;
-    text-align: center;
     margin-bottom: 4em;
+    text-align: center;
 
     &:first-child {
       margin-left: 0;
@@ -229,6 +274,12 @@ body {
   .otd {
     @extend .obbac;
     background-image: url(../images/otd-artwork.jpg);
+  }
+
+  @include breakpoint(medium) {
+    li {
+      margin-left: 2em;
+    }
   }
 }
 
@@ -262,9 +313,9 @@ body {
   .image-01 {
     background: url(../images/shoot-1.jpg);
     background-size: cover;
-    width: 23.9%;
+    width: 48%;
     height: 0;
-    padding-bottom: 15.8%;
+    padding-bottom: 31.8%;
   }
 
   .image-02 {
@@ -283,6 +334,13 @@ body {
     @extend .image-01;
     background: url(../images/shoot-4.jpg);
     background-size: cover;
+  }
+
+  @include breakpoint(medium) {
+    .image-01 {
+      width: 23.9%;
+      padding-bottom: 15.8%;
+    }
   }
 }
 
