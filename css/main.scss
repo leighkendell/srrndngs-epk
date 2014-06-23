@@ -5,7 +5,7 @@
 /* Breakpoints */
 @mixin breakpoint($point) {
   @if $point == large {
-    @media (min-width: 1299px) { @content; }
+    @media (min-width: 1000px) { @content; }
   }
   @else if $point == medium {
     @media (min-width: 700px)  { @content; }
@@ -23,7 +23,12 @@ $font-sourcesans: 'Source Sans Pro', sans-serif;
 
 /* Colours */
 $brand-red: #e46c62;
-
+$nav: #cfd9de;
+$facebook-blue: #3B5998;
+$twitter-blue: #55acee;
+$soundcloud-orange: #f45d1f;
+$rdio-blue: #007dc3;
+$instagram-blue: #517fa4;
 
 /* ==========================================================================
    Global
@@ -43,9 +48,11 @@ $brand-red: #e46c62;
   padding: 1.1em;
   border-radius: 4px;
   text-align: center;
+  font-size: 0.8em;
 
   @include breakpoint(medium) {
     display: inline-block;
+    font-size: 1em;
   }
 }
 
@@ -72,7 +79,7 @@ h2 {
   text-transform: uppercase;
   font-size: 2.125em;
   margin: 0 0 0.4em 0;
-  color: lighten($brand-red, 12%);
+  color: lighten($brand-red, 8%);
 
   @include breakpoint(medium) {
     font-size: 3.125em;
@@ -94,13 +101,18 @@ p {
   }
 }
 
+.copy {
+  font-size: 0.8em;
+  margin: 0;
+}
+
 nav {
   font-family: $font-sourcesans;
   text-transform: uppercase;
 
   a {
     text-decoration: none;
-    color: #cc9b96;
+    color: darken($nav, 20%);
     font-size: 0.8em;
 
     &:hover {
@@ -140,7 +152,7 @@ body {
   background-color: $brand-red;
 
   @include breakpoint(medium) {
-    background: $brand-red url(../images/surroundings-group-header.jpg) no-repeat right 45%;
+    background: $brand-red url(../images/optimised/surroundings-group-header.jpg) no-repeat right 45%;
     background-size: 65%;   
   }
 }
@@ -151,7 +163,7 @@ body {
 
   .surroundings-logo {
     display: block;
-    background: url(../images/surroundings-logo.svg) no-repeat;
+    background: url(../images/optimised/surroundings-logo.svg) no-repeat;
     background-size: 100%;
     width: 38%;
     height: 0;
@@ -170,7 +182,7 @@ body {
 }
 
 .main-nav {
-  background-color: lighten($brand-red, 32%);
+  background-color: lighten($nav, 10%);
   padding: 1em;
   text-align: center;
 
@@ -267,13 +279,13 @@ body {
     width: 150px;
     height: 0;
     padding-top: 155px;
-    background: url(../images/obbac-artwork.jpg) no-repeat;
+    background: url(../images/optimised/obbac-artwork.jpg) no-repeat;
     background-size: 100%;
   }
 
   .otd {
     @extend .obbac;
-    background-image: url(../images/otd-artwork.jpg);
+    background-image: url(../images/optimised/otd-artwork.jpg);
   }
 
   @include breakpoint(medium) {
@@ -311,7 +323,7 @@ body {
   }
 
   .image-01 {
-    background: url(../images/shoot-1.jpg);
+    background: url(../images/optimised/shoot-1.jpg);
     background-size: cover;
     width: 48%;
     height: 0;
@@ -320,23 +332,23 @@ body {
 
   .image-02 {
     @extend .image-01;
-    background: url(../images/shoot-2.jpg);
+    background: url(../images/optimised/shoot-2.jpg);
     background-size: cover;
   }
 
   .image-03 {
     @extend .image-01;
-    background: url(../images/shoot-3.jpg);
+    background: url(../images/optimised/shoot-3.jpg);
     background-size: cover;
   }
 
   .image-04 {
     @extend .image-01;
-    background: url(../images/shoot-4.jpg);
+    background: url(../images/optimised/shoot-4.jpg);
     background-size: cover;
   }
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     .image-01 {
       width: 23.9%;
       padding-bottom: 15.8%;
@@ -347,5 +359,61 @@ body {
 .contact {
   strong {
     display: block;
+  }
+}
+
+.main-footer {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.social {
+  padding: 0 0 2em 0;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    margin-left: 1em;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    text-indent: -9999em;
+    width: 40px;
+    height: 40px;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 100%;
+  }
+
+  .facebook {
+    background-color: $facebook-blue;
+    background-image: url(../images/optimised/facebook.svg);
+  }
+
+  .instagram {
+    background-color: $instagram-blue;
+    background-image: url(../images/optimised/instagram.svg);
+  }
+
+  .twitter {
+    background-color: $twitter-blue;
+    background-image: url(../images/optimised/twitter.svg);
+  }
+
+  .soundcloud {
+    background-color: $soundcloud-orange;
+    background-image: url(../images/optimised/soundcloud.svg);
+  }
+
+  .rdio {
+    background-color: $rdio-blue;
+    background-image: url(../images/optimised/rdio.svg);
   }
 }
