@@ -49,6 +49,11 @@ $instagram-blue: #517fa4;
   border-radius: 4px;
   text-align: center;
   font-size: 0.8em;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken(#4cb2e8, 10%);
+  }
 
   @include breakpoint(medium) {
     display: inline-block;
@@ -107,6 +112,11 @@ p {
 
   a {
     color: #56b0ec;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: darken(#56b0ec, 10%);
+    }
   }
 
   @include breakpoint(medium) {
@@ -327,6 +337,7 @@ body {
     display: inline-block;
     margin-bottom: 2em;
     width: 50%;
+    overflow: hidden;
 
     &:hover span, &:hover:before {
       opacity: 1;
@@ -346,6 +357,7 @@ body {
       opacity: 0;
       background-color: rgba(76,178,232,0.85);
       transition: 0.3s ease;
+      z-index: 10;
     }
 
     span {
@@ -362,6 +374,7 @@ body {
       color: #fff;
       opacity: 0;
       transition: 0.3s ease;
+      z-index: 20;
     }
   }
 
