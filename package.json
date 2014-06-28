@@ -2,6 +2,10 @@
   "name": "epk",
   "version": "0.0.1",
   "author": "Leigh Kendell",
+  "repository": {
+    "type": "",
+    "url": ""
+  },
   "devDependencies": {
     "gulp": "*",
     "gulp-ruby-sass": "*",
