@@ -210,7 +210,7 @@ body {
 
   @include breakpoint(medium) {
     background: $brand-red url(../images/optimised/surroundings-group-header.jpg) no-repeat right 45%;
-    background-size: 65%;   
+    background-size: 65%;
   }
 }
 
@@ -308,7 +308,7 @@ body {
     > div {
       padding-top: 3em;
       margin-bottom: 4em;
-    } 
+    }
   }
 }
 
@@ -355,8 +355,8 @@ body {
 .youtube {
   position: relative;
   width: 100%;
+  padding-bottom: 56.25%;
   margin-top: 2em;
-  padding-bottom: 60%;
 
   iframe {
     position: absolute;

@@ -56,7 +56,7 @@ gulp.task('clean', function() {
 //Browser Sync
 gulp.task('browser-sync', function() {
     browserSync.init(null, {
-      proxy: "epk.dev"
+      proxy: "surroundings.epk"
     });
 });
 
