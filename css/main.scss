@@ -18,8 +18,7 @@
    ========================================================================== */
 
 /* Fonts */
-$font-merriweather: 'Merriweather', serif;
-$font-sourcesans: 'Source Sans Pro', sans-serif;
+$font-futura: 'futura-pt', sans-serif;
 
 /* Colours */
 $brand-red: #e46c62;
@@ -34,13 +33,14 @@ $instagram-blue: #517fa4;
    Global
    ========================================================================== */
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
 	box-sizing: border-box;
 }
 
 .button {
   display: block;
-  font-family: $font-sourcesans;
   text-decoration: none;
   text-transform: uppercase;
   color: #fff;
@@ -62,7 +62,6 @@ $instagram-blue: #517fa4;
 }
 
 .download-hover {
-  font-family: $font-sourcesans;
   font-size: 1em;
   line-height: 0;
   position: absolute;
@@ -101,48 +100,47 @@ $instagram-blue: #517fa4;
    ========================================================================== */
 
 body {
-	font-family: $font-merriweather;
+	font-family: $font-futura;
+}
+
+h1,
+h2,
+h3 {
+    text-transform: uppercase;
 }
 
 h1 {
-  font-family: $font-sourcesans;
   color: rgba(255,255,255,0.8);
-  text-transform: uppercase;
-  font-size: 1.625em;
+  font-size: 1.4em;
   text-align: center;
   margin-bottom: 0;
 }
 
 h2 {
-  font-family: $font-sourcesans;
-  text-transform: uppercase;
-  font-size: 2.125em;
-  margin: 0 0 0.4em 0;
+  font-size: 2em;
+  margin: 0 0 .4em;
   color: lighten($brand-red, 8%);
 
   @include breakpoint(medium) {
-    font-size: 3.125em;
+    font-size: 2.2em;
   }
 }
 
 h3 {
-  font-family: $font-sourcesans;
-  text-transform: uppercase;
   font-size: 1.2em;
-  margin: 0 0 0.6em 0;
+  margin: 0 0 0.2em 0;
   color: lighten($brand-red, 8%);
 
   @include breakpoint(medium) {
-    font-size: 1.6em;
+    font-size: 1.8em;
   }
 }
 
 p {
-  font-size: 1em;
-  line-height: 1.6;
+  font-size: 1.2em;
+  line-height: 1.4;
   color: #909090;
-  margin-top: 0;
-  margin-bottom: 2em;
+  margin: 0 0 .8em;
 
   a {
     color: #56b0ec;
@@ -154,7 +152,7 @@ p {
   }
 
   @include breakpoint(medium) {
-    font-size: 1.125em;
+    font-size: 1.4em;
   }
 }
 
@@ -164,13 +162,12 @@ p {
 }
 
 nav {
-  font-family: $font-sourcesans;
   text-transform: uppercase;
 
   a {
     text-decoration: none;
     color: darken($nav, 20%);
-    font-size: 0.8em;
+    font-size: 1em;
 
     &:hover {
       color: lighten($brand-red, 5%);
@@ -222,9 +219,9 @@ body {
     display: block;
     background: url(../images/optimised/surroundings-logo.svg) no-repeat;
     background-size: 100%;
-    width: 38%;
+    width: 40%;
     height: 0;
-    padding-bottom: 45%;
+    padding-bottom: 20%;
     margin: 0 auto;
   }
 
@@ -232,8 +229,8 @@ body {
     width: 35%;
 
     .surroundings-logo {
-      width: 58%;
-      padding-bottom: 68%;
+      width: 80%;
+      padding-bottom: 40%;
     }
   }
 }
@@ -289,7 +286,7 @@ body {
 
   > div {
     padding-top: 1.5em;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
     border-top: 1px solid lighten($brand-red, 30%);
 
     &:first-child {
@@ -303,11 +300,11 @@ body {
   }
 
   @include breakpoint(medium) {
-    padding: 4em;
+    padding: 3em;
 
     > div {
-      padding-top: 3em;
-      margin-bottom: 4em;
+      padding-top: 2em;
+      margin-bottom: 2em;
     }
   }
 }
@@ -326,7 +323,7 @@ body {
 
     a {
       text-decoration: none;
-      font-family: $font-sourcesans;
+
       color: $brand-red;
       font-size: 0.8em;
     }
@@ -352,11 +349,24 @@ body {
   }
 }
 
+.video-wrap {
+    margin-bottom: 1.5em;
+
+    @include breakpoint(large) {
+        display: inline-block;
+        width: calc(50% - 1.15em);
+        margin-bottom: 0;
+
+        &:first-of-type {
+            margin-right: 2em;
+        }
+    }
+}
+
 .youtube {
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
-  margin-top: 2em;
 
   iframe {
     position: absolute;

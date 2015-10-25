@@ -1,73 +1,127 @@
-var gulp           = require('gulp');
-var sass           = require('gulp-ruby-sass');
-var autoprefixer   = require('gulp-autoprefixer');
-var minifycss      = require('gulp-minify-css');
-var rename         = require('gulp-rename');
-var clean          = require('gulp-clean');
-var livereload     = require('gulp-livereload');
-var lr             = require('tiny-lr');
-var server         = lr();
-var imagemin       = require('gulp-imagemin');
-var uglify         = require('gulp-uglify');
-var cache          = require('gulp-cache');
-var notify         = require("gulp-notify");
-var plumber        = require('gulp-plumber');
-var browserSync    = require('browser-sync');
+//Define all plugins
+var gulp               = require('gulp');
+var sass               = require('gulp-sass');
+var sourcemaps         = require('gulp-sourcemaps');
+var cache              = require('gulp-cached');
+var imagemin           = require('gulp-imagemin');
+var filter             = require('gulp-filter');
+var autoprefixer       = require('gulp-autoprefixer');
+var uglify             = require('gulp-uglify');
+var rename             = require('gulp-rename');
+var notify             = require("gulp-notify");
+var plumber            = require('gulp-plumber');
+var browserSync        = require('browser-sync');
+var reload             = browserSync.reload;
 
-//Styles task
-gulp.task('styles', function(){
-    return gulp.src('css/*.scss')
-        .pipe(plumber())
-        .pipe(sass({style: 'compressed'}))
-        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-        .pipe(gulp.dest('css'))
-        .pipe(browserSync.reload({stream:true}))
-        .pipe(notify("Styles task completed"));
+//Define file paths
+var js_src             = 'js/*.js';
+var js_dest            = 'js/min';
+var sass_src           = 'css/*.scss';
+var sass_dest          = 'css';
+var img_src            = 'images/*';
+var img_dest           = 'images/optimised';
+
+//Sass
+gulp.task('sass', function () {
+    gulp.src(sass_src)
+        //Notify on error
+        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+
+        //Source maps init
+        .pipe(sourcemaps.init())
+
+        //Process sass
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }))
+
+        //Autoprefix that css!
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+
+        //Write source map
+        .pipe(sourcemaps.write('./'))
+
+        //Output the compiled sass to this directory
+        .pipe(gulp.dest(sass_dest))
+
+        //Filtering stream to only css files
+        .pipe(filter('**/*.css'))
+
+        //Inject changes via browsersync
+        .pipe(reload({stream: true}))
+
+        //Notify on successful compile
+        .pipe(notify("Compiled: <%= file.relative %>"));
 });
 
-//Scripts task
-gulp.task('scripts', function(){
-    return gulp.src('js/*.js')
-        .pipe(plumber())
+//Scripts
+gulp.task('scripts', function () {
+    gulp.src(js_src)
+        //Notify on error
+        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+
+        //Cache files to avoid processing files that haven't changed
+        .pipe(cache('scripts'))
+
+        //Add .min suffix
+        .pipe(rename({ suffix: '.min' }))
+
+        //Minify
         .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('js/min'))
-        .pipe(browserSync.reload({stream:true, once: true}))
-        .pipe(notify("Scripts task completed"));
+
+        //Output the processed js to this directory
+        .pipe(gulp.dest(js_dest))
+
+        //Inject changes via browsersync
+        .pipe(reload({stream: true}))
+
+        //Notify on successful compile
+        .pipe(notify("Minified: <%= file.relative %>"));
 });
 
-//Image min task
-gulp.task('images', function(){
-    return gulp.src('images/*')
-        .pipe(plumber())
-        .pipe(cache(imagemin({ optimizationLevel: 7, progressive: true, interlaced: true })))
-        .pipe(gulp.dest('images/optimised'))
-        .pipe(browserSync.reload({stream:true, once: true}))
-        .pipe(notify("Images task completed"));
+//Images
+gulp.task('images', function () {
+    return gulp.src(img_src)
+        //Notify on error
+        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+
+        //Cache files to avoid processing files that haven't changed
+        .pipe(cache('images'))
+
+        //Optimise images
+        .pipe(imagemin({
+            progressive: true
+        }))
+
+        //Output the optimised images to this directory
+        .pipe(gulp.dest(img_dest))
+
+        //Inject changes via browsersync
+        .pipe(reload({stream: true}))
+
+        //Notify on successful compile
+        .pipe(notify("Optimised: <%= file.relative %>"));
 });
 
-//Clean out the images directory
-gulp.task('clean', function() {
-  return gulp.src('images/**/*', {read: false})
-    .pipe(clean())
-    .pipe(notify("Clean task completed"));
-});
-
-//Browser Sync
-gulp.task('browser-sync', function() {
-    browserSync.init(null, {
-      proxy: "surroundings.epk"
+//Browsersync
+gulp.task('browsersync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
     });
+
+    //Watch for changes
+    gulp.watch(sass_src, ['sass']);
+    gulp.watch(js_src, ['scripts']);
+    gulp.watch('images/**/*', ['images']);
+    gulp.watch("**/*.html").on("change", reload);
 });
 
-//Default Task - Run browser sync and watch for changes
-gulp.task('default', ['browser-sync'], function () {
-    // Watch .scss files
-    gulp.watch('css/*.scss', ['styles']);
-
-    // Watch .js files
-    gulp.watch('js/*.js', ['scripts']);
-
-    // Watch images
-    gulp.watch('images/*', ['images']);
+//Default
+gulp.task('default', ['browsersync'], function() {
+    gulp.start('sass', 'scripts');
 });

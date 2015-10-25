@@ -1,25 +1,18 @@
 {
-  "name": "epk",
-  "version": "0.0.1",
-  "author": "Leigh Kendell",
-  "repository": {
-    "type": "",
-    "url": ""
-  },
+  "name": "surroundings-epk",
+  "version": "0.1.0",
   "devDependencies": {
+    "browser-sync": "*",
     "gulp": "*",
-    "gulp-ruby-sass": "*",
     "gulp-autoprefixer": "*",
-    "gulp-minify-css": "*",
-    "gulp-rename": "*",
-    "gulp-notify": "*",
-    "gulp-clean": "*",
-    "gulp-livereload": "*",
-    "tiny-lr": "*",
+    "gulp-cached": "*",
+    "gulp-filter": "*",
     "gulp-imagemin": "*",
-    "gulp-uglify": "*",
-    "gulp-cache": "*",
+    "gulp-notify": "*",
     "gulp-plumber": "*",
-    "browser-sync": "*"
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*"
   }
 }
